@@ -8,33 +8,32 @@ import Menu from '../components/menu/menu';
 import UserRight from '../components/user/userright';
 // import Header from '../components/header/header';
 // import Footer from '../components/footer/footer';
-// import cookie from 'react-cookie';
+import cookie from 'react-cookie';
 import StatisticsCountup from '../components/countup/countup';
 
 const IndexMain = React.createClass({
   /*全局钩子cookie是否登录*/
   componentWillReceiveProps() {
     window.scrollTo(0, 0)
-      // this.props.dispatch({
-      //   type: 'LoginUser/UserIf',
-      // })
+    this.props.dispatch({
+      type: 'LoginUser/UserIf',
+    })
   },
   /*意外清除cookie是否登录*/
   componentDidMount() {
-
-    // this.props.dispatch({
-    //   type: 'LoginUser/UserIf',
-    // })
+    this.props.dispatch({
+      type: 'LoginUser/UserIf',
+    })
   },
   render() {
-    // const HeaderData = {
-    //   cookieuser: cookie.load('userdata'),
-    //   logoutchange: () => {
-    //     this.props.dispatch({
-    //       type: 'LoginUser/Userout',
-    //     })
-    //   }
-    // }
+    const HeaderData = {
+      cookieuser: cookie.load('userdata'),
+      logoutchange: () => {
+        this.props.dispatch({
+          type: 'LoginUser/Userout',
+        })
+      }
+    }
     return (
       <QueueAnim className={styles.heightauto} component="div">
            <QueueAnim type="left"><Menu key="1" localtion={this.props.location.pathname}/></QueueAnim>
@@ -43,7 +42,7 @@ const IndexMain = React.createClass({
                  <Header {...HeaderData}/>
                </div>
             </QueueAnim>*/} 
-           <QueueAnim type="right"><UserRight key="2"/></QueueAnim>
+           <QueueAnim type="right"><UserRight key="2" {...HeaderData}/></QueueAnim>
             
             <QueueAnim type="top" key="3" className={styles.container} component="div">
                {this.props.children}
@@ -67,4 +66,4 @@ const IndexMain = React.createClass({
 // }
 
 /*建立数据关联关系*/
-export default IndexMain;
+export default connect()(IndexMain)

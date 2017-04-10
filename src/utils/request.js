@@ -45,14 +45,16 @@ function checkStatus(response) {
 // export async const=''
 
 export default function request(url, options) {
-  let Token = cookie.load('userdata');
+  // console.log(url, options)
+  // let Token = cookie.load('userdata');
   return fetch('/api' + url, {
       //return fetch(`http://192.168.28.233:8080` + url, {
       method: options.method,
       headers: {
         "Content-Type": "application/json",
-        "sid": Token ? Token.sid + " " : ''
+        // "sid": Token ? Token.sid + " " : ''
       },
+      // body: options.body
       body: JSON.stringify(options.body)
     })
     .then(checkStatus)

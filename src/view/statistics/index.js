@@ -17,15 +17,13 @@ const Statistics = React.createClass({
 	/*全局钩子cookie是否登录*/
 	componentWillReceiveProps() {
 		window.scrollTo(0, 0)
-			// this.props.dispatch({
-			//   type: 'LoginUser/UserIf',
-			// })
+
 	},
 	/*意外清除cookie是否登录*/
 	componentDidMount() {
-		this.props.dispatch({
-			type: 'LoginUser/Userlogin'
-		})
+		// this.props.dispatch({
+		// 	type: 'LoginUser/Userlogin'
+		// })
 	},
 	render() {
 		const dataSource = [{

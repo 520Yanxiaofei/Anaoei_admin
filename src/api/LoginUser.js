@@ -2,8 +2,8 @@ import request from '../utils/request';
 
 /*登陆*/
 export async function Userlogin(params) {
-	return request(`/users`, {
-		method: 'GET',
+	return request(`/login`, {
+		method: 'POST',
 		body: params
 	});
 }

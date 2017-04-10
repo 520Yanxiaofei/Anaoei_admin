@@ -56,9 +56,9 @@ const Login = React.createClass({
       <div className ={styles.loginCaioner}>
       <Spin spinning={loading} >
         <Form onSubmit={this.handleSubmit} className={styles.loginFrom}>
-         <h1 className={styles.loginword}>【守卫者】后台系统</h1> 
+         <h1 className={styles.loginword}>Anaoei博客</h1> 
         <FormItem {...formItemLayout} hasFeedback>
-          {getFieldDecorator('user_name', {
+          {getFieldDecorator('username', {
             rules: [{ required: true, message: '用户名不能为空!' }],
           })(
             <Input addonBefore={<Icon type="user" />} placeholder="请输入用户名" autoComplete="off" />

@@ -17,14 +17,15 @@ import Category from './view/category/';
 import Comment from './view/comment/';
 import System from './view/system/';
 import Userlist from './view/user/';
-
+/*登录*/
+import Login from './view/login/login'
 
 export default function({
 	history
 }) {
 	return (
 		<Router history={history}>
-	      {/*<Route path="/login" component={LoginPage} />*/}
+	      {<Route path="/login" component={Login} />}
 	      <Route path="/" component={Index}>
 	           <IndexRoute component={Statistics} />
 	           <Route path='/article' component={Article}/>
